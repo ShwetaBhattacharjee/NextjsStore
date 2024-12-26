@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+:root {
+  height: 100%;
+}
+
+/* globals.css */
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+}
+
+.bg-purple {
+  background: #8e00a3;
+}
+
+.headerWrapper .top-strip {
+  padding: 8px 0px;
+}
+
+.headerWrapper .top-strip p {
+  color: #fff;
+  font-size: 12px;
+}
+/* About Us container */
+.about-us-container {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Make sure the container takes up the full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container for all images */
+.images-container {
+  display: flex;
+  flex-direction: column; /* Stack images vertically */
+  width: 100%;
+  overflow-y: auto; /* Allow scrolling through images */
+  flex-grow: 1;
+  margin: 0;
+}
+
+/* Individual image styles */
+.about-image {
+  object-fit: cover; /* Ensure the image covers the entire space */
+  width: 100%; /* Make the image take up the entire width of the container */
+  height: 100vh; /* Make each image take up the full viewport height */
+}
