@@ -119,7 +119,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-3">
             <span className="hidden md:block">
-              Need help? Call us: +971 502 487 319 or info@hdpartz.com
+              Need help? Call us: +971 502 487 or info@hdpartz.com
             </span>
             <div className="flex items-center gap-4">
               {/* AED Dropdown */}
@@ -230,6 +230,26 @@ const Navbar = () => {
                 <CircleUserRound className="h-6 w-6" />
               </Link>
             )}
+
+            <div className="flex items-center border rounded-lg px-3 py-1">
+              <input
+                className="outline-none w-24"
+                placeholder="Search..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <button disabled={query === ""} onClick={handleSearch}>
+                <Search className="h-4 w-4 cursor-pointer" />
+              </button>
+            </div>
+            <Link href={user ? "/wishlist" : "/sign-in"}>
+              <Heart className="h-6 w-6" />
+            </Link>
+            <Link href="/cart" className="flex items-center">
+              <ShoppingCart className="h-6 w-6" />
+              <span>({cart.cartItems.length})</span>
+            </Link>
+
             <Link
               rel="nofollow"
               href={user ? "/wishlist" : "/sign-in"}
