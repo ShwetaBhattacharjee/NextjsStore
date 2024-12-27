@@ -133,14 +133,21 @@ const Navbar = () => {
               </select>
 
               {/* Mobile Search Bar */}
-              <div className="md:hidden flex items-center border rounded-lg pl-3 py-1 w-70">
+              <div className="md:hidden relative flex items-center border rounded-lg pl-5 py-1 w-70">
                 <input
-                  className="outline-none w-full"
+                  className="outline-none w-full pr-10"
                   placeholder="Search..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   aria-label="Search"
                 />
+                <button
+                  className="absolute right-3 p-1"
+                  disabled={query === ""}
+                  onClick={handleSearch}
+                >
+                  <Search className="h-5 w-5 text-gray-500" />
+                </button>
               </div>
             </div>
           </div>
