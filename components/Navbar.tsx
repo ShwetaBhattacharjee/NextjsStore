@@ -250,22 +250,7 @@ const Navbar = () => {
               <span>({cart.cartItems.length})</span>
             </Link>
 
-            <Link
-              rel="nofollow"
-              href={user ? "/wishlist" : "/sign-in"}
-              aria-label="Wishlist"
-            >
-              <Heart className="h-6 w-6" />
-            </Link>
-            <Link
-              rel="nofollow"
-              href="/cart"
-              className="flex items-center"
-              aria-label="View Cart"
-            >
-              <ShoppingCart className="h-6 w-6" />
-              <span>({cart.cartItems.length})</span>
-            </Link>
+           
           </div>
         </div>
       </main>
