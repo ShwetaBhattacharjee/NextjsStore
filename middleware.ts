@@ -1,9 +1,8 @@
-import { authMiddleware } from "@clerk/nextjs";
+\
 import { NextResponse } from "next/server";
-import type { NextRequest, NextFetchEvent } from "next/server";
+import type { NextRequest } from "next/server";
 
-// Custom Middleware Logic
-export function middleware(req: NextRequest, event: NextFetchEvent) {
+export function middleware(req: NextRequest) {
   // Check for specific User-Agent and allow the request if it matches
   const userAgent = req.headers.get("user-agent");
 
@@ -15,17 +14,10 @@ export function middleware(req: NextRequest, event: NextFetchEvent) {
     return NextResponse.next(); // Allow the request to continue without authentication
   }
 
-  console.log("User-Agent does not match, delegating to Clerk authMiddleware.");
-
-  // Use Clerk's authMiddleware for all other requests
-  const clerkMiddleware = authMiddleware({
-    publicRoutes: ["/:path*"], // Allow these routes to bypass authentication
-  });
-
-  return clerkMiddleware(req, event); // Pass the request and event to Clerk's middleware
+  // Perform additional authentication or processing if necessary
+  console.log("User-Agent does not match, authentication required.");
+  // Here you can add more logic to handle other cases or block the request
+  return NextResponse.next();
 }
 
-// Config object for Clerk and custom logic
-export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"], // Define the routes for middleware application
-};
+
